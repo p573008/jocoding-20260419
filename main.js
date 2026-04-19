@@ -1,4 +1,3 @@
-
 class LottoBall extends HTMLElement {
     constructor() {
         super();
@@ -51,6 +50,29 @@ customElements.define('lotto-ball', LottoBall);
 
 const generateBtn = document.getElementById('generate-btn');
 const lottoNumbersContainer = document.getElementById('lotto-numbers');
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Theme Logic
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    body.classList.add(currentTheme);
+    if (currentTheme === 'dark-mode') {
+        themeToggle.textContent = '🌙';
+    }
+}
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    let theme = 'light-mode';
+    if (body.classList.contains('dark-mode')) {
+        theme = 'dark-mode';
+        themeToggle.textContent = '🌙';
+    } else {
+        themeToggle.textContent = '🌞';
+    }
+    localStorage.setItem('theme', theme);
+});
 
 function generateNumbers() {
     lottoNumbersContainer.innerHTML = '';
