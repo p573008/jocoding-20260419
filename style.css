@@ -25,6 +25,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 2rem;
     margin: 0;
     background-color: var(--bg-color);
     background-image: linear-gradient(45deg, var(--grid-color) 25%, transparent 25%),
@@ -40,6 +41,8 @@ body {
     position: relative;
     text-align: center;
     padding: 3rem 2rem 2rem;
+    width: 100%;
+    max-width: 500px;
     background-color: var(--container-bg);
     border-radius: 15px;
     box-shadow: 0 10px 30px var(--shadow-color);
@@ -60,6 +63,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--text-color);
 }
 
 .theme-toggle:hover {
@@ -96,9 +100,80 @@ h1 {
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
 }
 
-.generate-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.4);
+.divider {
+    border: none;
+    height: 1px;
+    background-color: var(--grid-color);
+    margin: 3rem 0;
+}
+
+.contact-section {
+    text-align: left;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid var(--grid-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.submit-btn {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    opacity: 0.9;
 }
 
 lotto-ball {
@@ -107,8 +182,13 @@ lotto-ball {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
     .container {
-        width: 90%;
+        width: 100%;
+        padding: 2rem 1.5rem;
     }
 
     h1 {
@@ -117,10 +197,11 @@ lotto-ball {
 
     .lotto-numbers-container {
         flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
     lotto-ball {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
 }
